@@ -72,7 +72,7 @@ export default class AppHome extends Component {
             onLeftClick={this.onOpenChange}
             rightContent={[
             <i style={{fontSize:22,lineHeight:'22px',marginRight:'8px'}} className='iconfont icon-xin'></i>,
-            <Link to='/search' style={{color:'black'}}><i style={{fontSize:22,lineHeight:'22px'}} className='iconfont icon-sousuo1'></i></Link>,
+            <Link to='/apphome/hometab/search' style={{color:'black'}}><i style={{fontSize:22,lineHeight:'22px'}} className='iconfont icon-sousuo1'></i></Link>,
             
         ]}
         >EYE&EAR</NavBar>

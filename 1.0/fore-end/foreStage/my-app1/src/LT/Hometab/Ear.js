@@ -70,7 +70,7 @@ export default class Eye extends Component {
           {
             this.state.dataItem.map((item,index)=>(
               // <Link to={'/details/'+index}>
-              <Link to='/details'>
+              <Link to='/apphome/hometab/details'>
               <li style={{height:'110px',width:'95%',margin:'0 auto',marginBottom:'10px',border:'1px solid #8794a8'}} key={index}>
                 <img style={{width:'80px',height:'80px',float:'left'}} src={item.img}/>
                 <div style={{display:'inline-block',marginLeft:'10px'}}>

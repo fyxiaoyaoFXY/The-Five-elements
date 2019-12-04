@@ -60,9 +60,9 @@ export default class VIP extends Component {
                         columnNum={3}
                         renderItem={dataItem => (
                             <div id="homeimg">
-                                <div style={{width:'100%',height:60,paddingTop:20}}>
+                                <div style={{width:'100%',height:60}}>
                                 {
-                                    <i className={dataItem.icon} style={{fontSize:40,color:'black',height:60,width:80,textAlign:'center'}} ></i>
+                                    <i className={dataItem.icon} style={{fontSize:50,color:'black',height:60,width:80,textAlign:'center'}} ></i>
                                 }
                                 </div>
                                 <div id="Vp">{dataItem.tit}</div>

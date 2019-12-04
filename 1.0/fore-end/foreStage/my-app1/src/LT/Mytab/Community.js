@@ -22,8 +22,8 @@ export default class Community extends Component {
     render() {
         return (
             <div style={{position: 'absolute',width:'100%',height:'100%'}}>
-                <div style={{position:'fixed',padding:'5px 0 5px 10px',zIndex:5,fontSize:22,width:'100%',backgroundColor:'#8794a8'}} className='iconfont iconreturn'>
-                    <p style={{margin:'0 auto',fontSize:18}}>社区</p>
+                <div style={{width:'100%',backgroundColor:'#8794a8',height:'50px'}}>
+                <p style={{margin:'0 auto',fontSize:18,textAlign:'center',lineHeight:'50px'}}>社区</p>
                 </div>
                 <div style={{height:'93%',width:'100%',paddingTop:30,position:'fixed'}}>
                     <Link to='/apphome/shoptab/dynamic'><div style={{position:'absolute',right:10,top:45,fontSize:20}} className='iconfont icon21'></div></Link>
@@ -80,7 +80,7 @@ export default class Community extends Component {
                                                             {
                                                                 this.state.dataItem.map((item,index)=>(
                                                                 // <Link to={'/details/'+index}>
-                                                                <Link to='/apphome/mytab/chat'>
+                                                                <Link to='/apphome/mytab/chat1'>
                                                                 <li style={{height:'110px',width:'95%',margin:'0 auto',marginBottom:'10px',border:'1px solid #8794a8'}} key={index}>
                                                                     <img style={{width:'90px',height:'90px',float:'left'}} src={item.img}/>
                                                                     <div style={{display:'inline-block',marginLeft:'10px'}}>
