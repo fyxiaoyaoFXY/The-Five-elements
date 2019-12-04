@@ -3,6 +3,12 @@
     padding: 0;
     margin: 0;
 }
+.slider-list{
+  border: 0;
+}
+.slider-slide{
+  border:0;
+}
 .sc-example {
   padding-bottom: 13px;
 }

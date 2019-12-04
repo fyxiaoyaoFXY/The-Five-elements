@@ -92,6 +92,8 @@ export default class AppHome extends Component {
             beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
             afterChange={index => console.log('slide to', index)}
             style={{width: '60%', height: this.state.imgHeight,margin:'0 auto'}}
+            dotStyle={{width:0,height:0}}
+            dotActiveStyle={{width:0,height:0}}
             >
             {this.state.data.map(val => (
                 <a
@@ -132,4 +134,3 @@ export default class AppHome extends Component {
     );
   }
 }
-

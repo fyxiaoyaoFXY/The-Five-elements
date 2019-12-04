@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Carousel} from 'antd-mobile';
 import {HashRouter  as Router,withRouter,Route,Link,Switch,Redirect} from 'react-router-dom';
+import '../index.css'
 
 const data = [
     {img:'/img/6.jpg',title:'音乐会',context1:'谱写乐曲的是人类的心，',context2:'而音乐展现的是人类心的世界。'},
@@ -15,7 +16,7 @@ export default class Greeting extends Component {
             // <div style={{position: 'absolute',width:'100%',height:'100%',backgroundColor:'#091e2e'}}>
             <div style={{position: 'absolute',width:'100%',height:'100%',backgroundColor:'#0e0e0c'}}>
                 <Carousel
-                    style={{position:'fixed',top:'20%',height:'60%',border:'0px solid black'}}
+                    style={{position:'fixed',top:'20%',height:'60%'}}
                     autoplay={true}
                     dotStyle={{width:6,height:6,borderRadius:3,border:'1px solid #444',backgroundColor:'#091e2e',display:'block',marginLeft:10}}
                     dotActiveStyle={{width:6,height:6,borderRadius:3,border:'1px solid #444',backgroundColor:'#444',display:'block',marginLeft:10}}
@@ -30,9 +31,9 @@ export default class Greeting extends Component {
                                 backgroundSize:200,
                                 margin:'0 auto'
                             }}></div>
-                            <h3 style={{color:'#fff',fontSize:20,marginTop:50,marginLeft:-10}}>{val.title}</h3>
-                            <p style={{color:'#7a858e',fontSize:12}}>{val.context1}</p>
-                            <p style={{color:'#7a858e',fontSize:12}}>{val.context2}</p>
+                            <h3 style={{color:'#fff',fontSize:20,marginTop:30,marginLeft:-10,marginBottom:0}}>{val.title}</h3>
+                            <p style={{color:'#7a858e',fontSize:12,margin:'0px'}}>{val.context1}</p>
+                            <p style={{color:'#7a858e',fontSize:12,margin:'0px'}}>{val.context2}</p>
                         </div>
                     ))}
                 </Carousel>

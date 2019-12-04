@@ -59,7 +59,7 @@ export default class Community extends Component {
                                     tabs.map(item=>{
                                             if(item.title == '动态'){
                                                 return <div style={{ display: 'flex', height: '100%', backgroundColor: '#fff'}}>
-                                                            <div style={{width:'100%',height:'33%',borderBottom:'1px dotted #d4d4d4'}}>
+                                                            <div style={{width:'100%',height:'35%',borderBottom:'1px dotted #d4d4d4'}}>
                                                                 <Grid data={data}
                                                                     columnNum={3}
                                                                     hasLine={false}
