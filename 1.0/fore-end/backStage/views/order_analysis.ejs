@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>用户分析</title>
+	<title>订单分析</title>
 	<link rel='stylesheet' href='/stylesheets/index.css' />
 </head>
 
@@ -73,12 +73,12 @@
 						font-size: 16px;
 						font-weight: 400;
 						color: #b9b9b9;">
-						用户分析
+						订单分析
 					</p>
 					<p style="margin-left: 50px;
 						font-size: 14px;
 						font-weight: bolder;">
-						用户增长
+						订单数据
 					</p>
 				</div>
 				<div style="width: 100%;
@@ -96,26 +96,26 @@
 					<div style="width: 100%;
 						height: 60px;
 						background-color:#b9b9b9">
-						<p style="font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">昨日核心指标
+						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">昨日订单指标
 						</p>
 						<button class="receive" onclick="Receive(0)"
-							style="float: right;width: 23px;height: 20px;margin-right: 30px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∧</button>
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∧</button>
 					</div>
 					<ul class="visit"
 						style="width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
+							<p style="margin-top: 0;font-size: 14px;">新增订单数</p>
 							<p style="font-size: 20px;">100</p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
+							<p style="margin-top: 0;font-size: 14px;">已支付数</p>
+							<p style="font-size: 20px;">80</p>
 						</li>
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
-							<p style="font-size: 20px;">10000</p>
+							<p style="margin-top: 0;font-size: 14px;">累计金额</p>
+							<p style="font-size: 20px;">1000</p>
 						</li>
 					</ul>
 				</div>
@@ -123,26 +123,26 @@
 					<div style="width: 100%;
 						height: 60px;
 						background-color:#b9b9b9">
-						<p style="font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">7日核心指标
+						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">7日订单指标
 						</p>
 						<button class="receive" onclick="Receive(1)"
-							style="float: right;width: 23px;height: 20px;margin-right: 30px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
 					</div>
 					<ul class="visit"
 						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
+							<p style="margin-top: 0;font-size: 14px;">新增订单数</p>
 							<p style="font-size: 20px;">100</p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
+							<p style="margin-top: 0;font-size: 14px;">已支付数</p>
+							<p style="font-size: 20px;">80</p>
 						</li>
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
-							<p style="font-size: 20px;">10000</p>
+							<p style="margin-top: 0;font-size: 14px;">累计金额</p>
+							<p style="font-size: 20px;">1000</p>
 						</li>
 					</ul>
 				</div>
@@ -150,21 +150,21 @@
 					<div style="width: 100%;
 						height: 60px;
 						background-color:#b9b9b9">
-						<p style="font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
-							15日核心指标</p>
+						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
+							15日订单指标</p>
 						<button class="receive" onclick="Receive(2)"
-							style="float: right;width: 23px;height: 20px;margin-right: 30px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
 					</div>
 					<ul class="visit"
 						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
+							<p style="margin-top: 0;font-size: 14px;">新增订单数</p>
 							<p style="font-size: 20px;">100</p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
+							<p style="margin-top: 0;font-size: 14px;">已支付数</p>
+							<p style="font-size: 20px;">80</p>
 						</li>
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
@@ -177,26 +177,26 @@
 					<div style="width: 100%;
 						height: 60px;
 						background-color:#b9b9b9">
-						<p style="font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
-							30日核心指标</p>
+						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
+							30日订单指标</p>
 						<button class="receive" onclick="Receive(3)"
-							style="float: right;width: 23px;height: 20px;margin-right: 30px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
 					</div>
 					<ul class="visit"
 						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
+							<p style="margin-top: 0;font-size: 14px;">新增订单数</p>
 							<p style="font-size: 20px;">100</p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
+							<p style="margin-top: 0;font-size: 14px;">已支付数</p>
+							<p style="font-size: 20px;">80</p>
 						</li>
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
-							<p style="font-size: 20px;">10000</p>
+							<p style="margin-top: 0;font-size: 14px;">累计金额</p>
+							<p style="font-size: 20px;">1000</p>
 						</li>
 					</ul>
 				</div>
@@ -216,17 +216,17 @@
 						style="display:none;width: 100%;height: 120px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
+							<p style="margin-top: 0;font-size: 14px;">新增订单数</p>
 							<p style="font-size: 20px;">100</p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
+							<p style="margin-top: 0;font-size: 14px;">已支付数</p>
+							<p style="font-size: 20px;">80</p>
 						</li>
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
-							<p style="font-size: 20px;">10000</p>
+							<p style="margin-top: 0;font-size: 14px;">累计金额</p>
+							<p style="font-size: 20px;">1000</p>
 						</li>
 					</ul>
 				</div>
