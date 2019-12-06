@@ -46,7 +46,8 @@ ul li{
   font-size: 20px;
 }
 .contentLeft ul a:hover{
-  background: #9c9b9a;
+  background: #ff5722;
+  color: #fff;
 }
 .main{
   width:100%;

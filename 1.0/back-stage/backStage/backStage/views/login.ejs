@@ -47,18 +47,39 @@
         <div class="loginform">
             <div style="width:100px;height:100px;background-image:url('/images/6.jpg');background-size: 110% 100%;margin: auto auto;"></div>
             <p class="login_p">EYE&EAR管理平台</p>
-            <form class="myform">
+            <div class="myform">
                 <select id="identity">
                     <option value="administrator">管理员</option>
                     <option value="company">企业</option>
                 </select>
-                <input type="text" autocomplete="off" placeholder="帐号"   id="username" />
+                <input type="text" autocomplete="off" placeholder="帐号"   name="username" id="username" />
                 
-                <input type="password" autocomplete="off" placeholder="密码"  id="pwd" />
+                <input type="password" autocomplete="off" placeholder="密码"  name="password" id="pwd"/>
             
-                <button type="submit" id="login"><span><a href="http://localhost:8000/b1/user_analysis">登录</a></span></button>
-            </form>
+                <button type="submit" id="login"><span>登录</span></button>
+            </div>
         </div>
     </div>
 </body>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script>
+    $("#login").click(function() {
+
+        $.ajax({
+            type: "post",
+            url: "http://localhost:8000/b1/login/login",
+            data: {username: $("#username").val(), password: $("#pwd").val()},
+            success: function(data) {
+                if(data == 'success') {
+                    window.alert('登陆成功')
+                    window.location = "http://localhost:8000/b1/user_analysis";
+                }else if(data == '用户名，密码为空'){
+                    window.alert('用户名，密码不为空')
+                }else{
+                    window.alert('登录失败')
+                }
+            }
+        })
+    })
+</script>
 </html>
