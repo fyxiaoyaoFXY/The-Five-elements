@@ -26,7 +26,7 @@ export default class Community extends Component {
                 <p style={{margin:'0 auto',fontSize:18,textAlign:'center',lineHeight:'50px'}}>社区</p>
                 </div>
                 <div style={{height:'93%',width:'100%',paddingTop:30,position:'fixed'}}>
-                    <Link to='/apphome/shoptab/dynamic'><div style={{position:'absolute',right:10,top:45,fontSize:20}} className='iconfont icon21'></div></Link>
+                    <Link to='/apphome/mytab/dynamic'><div style={{position:'absolute',right:10,top:45,fontSize:20}} className='iconfont icon21'></div></Link>
                     <div style={{height:'18%',margin:15}}>
                         <div style={{
                                     width:80,

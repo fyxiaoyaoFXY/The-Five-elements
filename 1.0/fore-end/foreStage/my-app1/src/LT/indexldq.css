@@ -16,7 +16,7 @@
   border-radius: 30px;
   width: 60px;
   height: 60px;
-  background: red;
+  /* background: red; */
 }
 .form{
   margin-top: 10%;
@@ -30,4 +30,12 @@
 }
 .placeholder .form span{
   text-align: left;
+}
+ul{
+  border:none;
+}
+ul li{
+  border:none;
+  float: left;
+  margin-left: 50px;
 }

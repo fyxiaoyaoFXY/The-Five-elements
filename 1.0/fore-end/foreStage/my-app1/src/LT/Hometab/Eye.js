@@ -57,7 +57,7 @@ export default class Eye extends Component {
                         )}
                     />
         <div>
-        <Accordion defaultActiveKey="0" className="my-accordion" onChange={this.onChange} >
+        <Accordion defaultActiveKey="1" className="my-accordion" onChange={this.onChange} >
             <Accordion.Panel header="更多">
               <List className="my-list" >
                 <List.Item  style={{background:'#8794a8'}}>木偶展</List.Item>
