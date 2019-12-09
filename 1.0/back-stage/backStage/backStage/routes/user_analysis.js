@@ -20,24 +20,20 @@ router.get('/', function (req,res,next) {
         var date = new Date(result[index].time.replace(/-/g, "/"));
         var days = now.getTime() - date.getTime();
         var day = parseInt(days / (1000 * 60 * 60 * 24));
-        switch (day) {
-          case 0:
-            today++;
-            break;
-          case 1:
-            yesterday++;
-            break;
-          case day >= 2 && day <= 7:
-            seven++;
-            break;
-          case day >= 2 && day <= 7:
-            fifteen++;
-            break;
-          case day >= 2 && day <= 7:
-            thirty++;
-            break;
+        console.log(day);
+        if(day == 0){
+          today++;
+        }else if(day == 1){
+          yesterday++;
+        }else if(day >= 2 && day <= 7){
+          seven++;
+        }else if(day > 7 && day <= 15){
+          fifteen++;
+        }else if(day > 15 && day <= 30){
+          thirty++
         }
       }
+      console.log(seven)
       res.render('user_analysis', {
         today: today - 1,
         yesterday: yesterday - 1,
