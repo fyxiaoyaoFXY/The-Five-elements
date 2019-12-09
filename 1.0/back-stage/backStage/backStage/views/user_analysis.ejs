@@ -12,9 +12,10 @@
 			<span style="display: block;float:left;margin-top:8px;margin-left: 5%;font-size: 25px;">
 				EYE&EAR管理平台
 			</span>
-			<a style="display: block;float:right;color:#ff5722;margin-top:10px;margin-right:3%;font-size: 22px;" href="http://localhost:8000/b1/login">退出</a>
-			<a
-				style="display:block;float:right;width:30px;height:30px;background:url(/images/1.png);background-size:100% 100%;margin-top:12px;margin-right:2%;" href="http://localhost:8000/b1/login"></a>
+			<a style="display: block;float:right;color:#ff5722;margin-top:10px;margin-right:3%;font-size: 22px;"
+				href="http://localhost:8000/b1/login">退出</a>
+			<a style="display:block;float:right;width:30px;height:30px;background:url(/images/1.png);background-size:100% 100%;margin-top:12px;margin-right:2%;"
+				href="http://localhost:8000/b1/login"></a>
 		</div>
 	</div>
 	<div class="content">
@@ -96,7 +97,9 @@
 					<div style="width: 100%;
 						height: 60px;
 						background-color:#b9b9b9">
-						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">昨日核心指标
+						<p
+							style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
+							今日核心指标
 						</p>
 						<button class="receive" onclick="Receive(0)"
 							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∧</button>
@@ -106,7 +109,7 @@
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
 							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
-							<p style="font-size: 20px;">100</p>
+							<p style="font-size: 20px;"><%= today %></p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
 							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
@@ -115,88 +118,7 @@
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
 							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
-							<p style="font-size: 20px;">10000</p>
-						</li>
-					</ul>
-				</div>
-				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
-					<div style="width: 100%;
-						height: 60px;
-						background-color:#b9b9b9">
-						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">7日核心指标
-						</p>
-						<button class="receive" onclick="Receive(1)"
-							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
-					</div>
-					<ul class="visit"
-						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
-						<li
-							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
-							<p style="font-size: 20px;">100</p>
-						</li>
-						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
-						</li>
-						<li
-							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
-							<p style="font-size: 20px;">10000</p>
-						</li>
-					</ul>
-				</div>
-				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
-					<div style="width: 100%;
-						height: 60px;
-						background-color:#b9b9b9">
-						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
-							15日核心指标</p>
-						<button class="receive" onclick="Receive(2)"
-							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
-					</div>
-					<ul class="visit"
-						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
-						<li
-							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
-							<p style="font-size: 20px;">100</p>
-						</li>
-						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
-						</li>
-						<li
-							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
-							<p style="font-size: 20px;">10000</p>
-						</li>
-					</ul>
-				</div>
-				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
-					<div style="width: 100%;
-						height: 60px;
-						background-color:#b9b9b9">
-						<p style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
-							30日核心指标</p>
-						<button class="receive" onclick="Receive(3)"
-							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
-					</div>
-					<ul class="visit"
-						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
-						<li
-							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
-							<p style="font-size: 20px;">100</p>
-						</li>
-						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
-						</li>
-						<li
-							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
-							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
-							<p style="font-size: 20px;">10000</p>
+							<p style="font-size: 20px;"><%= today+yesterday+seven+fifteen+thirty%></p>
 						</li>
 					</ul>
 				</div>
@@ -206,18 +128,17 @@
 						background-color:#b9b9b9">
 						<p
 							style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
-							<input id="date" oninput="Show()" style="border:none;background-color: #b9b9b9;"
-								type="date"></p>
-						<p
-							style="float: right;width: 50px;height: 20px;margin-right: 30px;margin-top:20px;border: 1px solid #d4d4d4;border-radius: 10px;font-weight: bolder;color:rgb(43, 139, 204);font-size: 12px;">
-							打印表格</p>
+							昨日核心指标
+						</p>
+						<button class="receive" onclick="Receive(1)"
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
 					</div>
-					<ul id="context"
-						style="display:none;width: 100%;height: 120px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
+					<ul class="visit"
+						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
 							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
-							<p style="font-size: 20px;">100</p>
+							<p style="font-size: 20px;"><%= yesterday %></p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
 							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
@@ -226,7 +147,124 @@
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
 							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
-							<p style="font-size: 20px;">10000</p>
+							<p style="font-size: 20px;"><%= yesterday+seven+fifteen+thirty%></p>
+						</li>
+					</ul>
+				</div>
+				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
+					<div style="width: 100%;
+						height: 60px;
+						background-color:#b9b9b9">
+						<p
+							style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
+							7日核心指标
+						</p>
+						<button class="receive" onclick="Receive(2)"
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
+					</div>
+					<ul class="visit"
+						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
+							<p style="font-size: 20px;"><%= seven %></p>
+						</li>
+						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
+							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
+							<p style="font-size: 20px;">1000</p>
+						</li>
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
+							<p style="font-size: 20px;"><%= seven+fifteen+thirty%></p>
+						</li>
+					</ul>
+				</div>
+				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
+					<div style="width: 100%;
+						height: 60px;
+						background-color:#b9b9b9">
+						<p
+							style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
+							15日核心指标</p>
+						<button class="receive" onclick="Receive(3)"
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
+					</div>
+					<ul class="visit"
+						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
+							<p style="font-size: 20px;"><%= fifteen %></p>
+						</li>
+						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
+							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
+							<p style="font-size: 20px;">1000</p>
+						</li>
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
+							<p style="font-size: 20px;"><%= fifteen+thirty%></p>
+						</li>
+					</ul>
+				</div>
+				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
+					<div style="width: 100%;
+						height: 60px;
+						background-color:#b9b9b9">
+						<p
+							style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
+							30日核心指标</p>
+						<button class="receive" onclick="Receive(4)"
+							style="float: right;width: 23px;height: 20px;margin-right: 30px;margin-top: 25px;background-color:#383838;border: 1px solid #383838;border-radius: 10px;color:#fff">∨</button>
+					</div>
+					<ul class="visit"
+						style="display:none;width: 100%;height: 220px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
+							<p style="font-size: 20px;"><%= thirty %></p>
+						</li>
+						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
+							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
+							<p style="font-size: 20px;">1000</p>
+						</li>
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
+							<p style="font-size: 20px;"><%= thirty%></p>
+						</li>
+					</ul>
+				</div>
+				<div style="width: 100%;border: 1px solid #d4d4d4;margin:10px 0 10px 0;">
+					<div style="width: 100%;
+						height: 60px;
+						background-color:#b9b9b9;">
+						<p
+							style="float: left;font-size: 14px;padding-left: 15px;color: #424242;margin: 0;">
+							<input id="bDate" oninput="Show()" style="border:none;background-color: #b9b9b9;" type="date">
+							<button id="date" style="background: rgb(236, 72, 72);  margin-top:20px;
+              border-radius: 10px;color:white;height:30px;width:70px;border-width: 1px;">确定</button>
+						</p>
+						<p
+							style="float: right;width: 50px;height: 20px;margin-right: 30px;margin-top:20px;border: 1px solid #d4d4d4;border-radius: 10px;font-weight: bolder;color:rgb(43, 139, 204);font-size: 12px;">
+							打印表格</p>
+					</div>
+					<ul id="context"
+						style="display:none;width: 100%;height: 150px;background-color:#fff;padding-left: 0;border:none;margin: 0;padding-top: 70px;">
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-right: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">新注册用户</p>
+							<p id="sign_num" style="font-size: 20px;">100</p>
+						</li>
+						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
+							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
+							<p style="font-size: 20px;">1000</p>
+						</li>
+						<li
+							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
+							<p style="margin-top: 0;font-size: 14px;">累计注册</p>
+							<p id="sign_all" style="font-size: 20px;">10000</p>
 						</li>
 					</ul>
 				</div>
@@ -234,6 +272,7 @@
 		</div>
 	</div>
 </body>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 <script>
 	function Receive(index) {
 		var receive = document.getElementsByClassName('receive');
@@ -250,8 +289,22 @@
 	function Show() {
 		var date = document.getElementById('date');
 		var context = document.getElementById('context');
-		context.style.display = 'block'
+		context.style.display = 'block';
 	}
+	$("#date").click(function () {
+		$.ajax({
+			type: 'post',
+			url: "http://localhost:8000/b1/user_analysis/date",
+			data: {
+				date: $("#bDate").val()
+			},
+			success: function (data) {
+				// window.location = "http://localhost:8000/b1/user_analysis";
+				$("#sign_num").text(data.numStr);
+				$("#sign_all").text(data.allStr);
+			}
+		})
+	})
 </script>
 
 </html>
