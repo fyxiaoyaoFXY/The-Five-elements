@@ -24,7 +24,7 @@
 				<ul>
 					<li>统计</li>
 					<li>
-						<a href="http://localhost:8000/b1/user_analysis">
+						<a href="http://localhost:8000/b1/user_analysis" style="color: red;">
 							用户分析
 						</a>
 					</li>
@@ -112,8 +112,8 @@
 							<p style="font-size: 20px;"><%= today %></p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
+							<p style="margin-top: 0;font-size: 14px;">会员用户</p>
+							<p style="font-size: 20px;"><%= today_vip + yesterday_vip + seven_vip + fifteen_vip + thirty_vip %></p>
 						</li>
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
@@ -141,8 +141,8 @@
 							<p style="font-size: 20px;"><%= yesterday %></p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
+							<p style="margin-top: 0;font-size: 14px;">会员用户</p>
+							<p style="font-size: 20px;"><%= yesterday_vip + seven_vip + fifteen_vip + thirty_vip %></p>
 						</li>
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
@@ -170,8 +170,8 @@
 							<p style="font-size: 20px;"><%= seven %></p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
+							<p style="margin-top: 0;font-size: 14px;">会员用户</p>
+							<p style="font-size: 20px;"><%= seven_vip + fifteen_vip + thirty_vip %></p>
 						</li>
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
@@ -198,8 +198,8 @@
 							<p style="font-size: 20px;"><%= fifteen %></p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
+							<p style="margin-top: 0;font-size: 14px;">会员用户</p>
+							<p style="font-size: 20px;"><%= fifteen_vip + thirty_vip %></p>
 						</li>
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
@@ -226,8 +226,8 @@
 							<p style="font-size: 20px;"><%= thirty %></p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
+							<p style="margin-top: 0;font-size: 14px;">会员用户</p>
+							<p style="font-size: 20px;"><%= thirty_vip %></p>
 						</li>
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
@@ -258,8 +258,8 @@
 							<p id="sign_num" style="font-size: 20px;">100</p>
 						</li>
 						<li style="text-align: center;display:inline-block;width: 320px;height: 123px;">
-							<p style="margin-top: 0;font-size: 14px;">昨日访问</p>
-							<p style="font-size: 20px;">1000</p>
+							<p style="margin-top: 0;font-size: 14px;">会员总用户</p>
+							<p id="sign_vip" style="font-size: 20px;"></p>
 						</li>
 						<li
 							style="text-align: center;display:inline-block;width: 320px;height: 123px;border-left: 1px solid #d4d4d4;">
@@ -302,6 +302,7 @@
 				// window.location = "http://localhost:8000/b1/user_analysis";
 				$("#sign_num").text(data.numStr);
 				$("#sign_all").text(data.allStr);
+				$("#sign_vip").text(data.vipStr);
 			}
 		})
 	})

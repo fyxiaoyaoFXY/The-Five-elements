@@ -12,9 +12,10 @@
       <span style="display: block;float:left;margin-top:8px;margin-left: 5%;font-size: 25px;">
         EYE&EAR管理平台
       </span>
-      <a style="display: block;float:right;color:#ff5722;margin-top:10px;margin-right:3%;font-size: 22px;" href="http://localhost:8000/b1/login">退出</a>
-      <a
-        style="display:block;float:right;width:30px;height:30px;background:url(/images/1.png);background-size:100% 100%;margin-top:12px;margin-right:2%;" href="http://localhost:8000/b1/login"></a>
+      <a style="display: block;float:right;color:#ff5722;margin-top:10px;margin-right:3%;font-size: 22px;"
+        href="http://localhost:8000/b1/login">退出</a>
+      <a style="display:block;float:right;width:30px;height:30px;background:url(/images/1.png);background-size:100% 100%;margin-top:12px;margin-right:2%;"
+        href="http://localhost:8000/b1/login"></a>
     </div>
   </div>
   <div class="content">
@@ -59,7 +60,7 @@
             </a>
           </li>
           <li>
-            <a href="http://localhost:8000/b1/user_management">
+            <a href="http://localhost:8000/b1/user_management" style="color: red;">
               账户权限
             </a>
           </li>
@@ -73,7 +74,8 @@
           </div>
           <div class="chazhao" style="margin-top: 10px;border-bottom: 1px solid #d4d4d4;">
             <p style="padding-top:20px;padding-left:30px;display: inline-block;font-weight: bolder;">账户列表</p>
-            <p style="padding-top:20px;padding-left:30px;display: inline-block;font-size: 13px;color: blue;"><a href="http://localhost:8000/b1/user_management/add">新增账户</a></p>
+            <p style="padding-top:20px;padding-left:30px;display: inline-block;font-size: 13px;color: blue;"><a
+                href="http://localhost:8000/b1/user_management/add" style="color: blue;cursor:pointer">新增账户</a></p>
           </div>
           <div class="userlist" style="height: auto;margin-top: 0;">
             <p style="color:#808080;padding-top: 15px;margin-left:10px;margin-top: 0;">账户信息</p>
@@ -89,66 +91,22 @@
             </ul>
             <hr style="width: 960px;margin:0 auto;
                   background-color:#c4c2c2;border:none;height:1px;" />
-            <ul class="order_message"
-              style="border-bottom: 1px solid #d4d4d4;width: 100%;height: 50px;padding-left: 0;">
-              <li>111</li>
-              <li>管理员</li>
-              <li>***</li>
-              <li>123456789</li>
-              <li>正常</li>
-              <li>
-                <span style="color: red;font-size: 12px;">删除</span>
-                <span style="color: blue;font-size: 12px;"><a href="http://localhost:8000/b1/user_management/change">修改</a></span>
-              </li>
-            </ul>
-            <ul class="order_message"
-              style="border-bottom: 1px solid #d4d4d4;width: 100%;height: 50px;padding-left: 0;">
-              <li>555</li>
-              <li>管理员</li>
-              <li>***</li>
-              <li>123456789</li>
-              <li>正常</li>
-              <li>
-                <span style="color: red;font-size: 12px;">删除</span>
-                <span style="color: blue;font-size: 12px;">修改</span>
-              </li>
-            </ul>
-            <ul class="order_message"
-              style="border-bottom: 1px solid #d4d4d4;width: 100%;height: 50px;padding-left: 0;">
-              <li>2222</li>
-              <li>管理员</li>
-              <li>***</li>
-              <li>123456789</li>
-              <li>正常</li>
-              <li>
-                <span style="color: red;font-size: 12px;">删除</span>
-                <span style="color: blue;font-size: 12px;">修改</span>
-              </li>
-            </ul>
-            <ul class="order_message"
-              style="border-bottom: 1px solid #d4d4d4;width: 100%;height: 50px;padding-left: 0;">
-              <li>333</li>
-              <li>管理员</li>
-              <li>***</li>
-              <li>123456789</li>
-              <li>正常</li>
-              <li>
-                <span style="color: red;font-size: 12px;">删除</span>
-                <span style="color: blue;font-size: 12px;">修改</span>
-              </li>
-            </ul>
-            <ul class="order_message"
-              style="border-bottom: 1px solid #d4d4d4;width: 100%;height: 50px;padding-left: 0;">
-              <li>444</li>
-              <li>管理员</li>
-              <li>***</li>
-              <li>123456789</li>
-              <li>正常</li>
-              <li>
-                <span style="color: red;font-size: 12px;">删除</span>
-                <span style="color: blue;font-size: 12px;">修改</span>
-              </li>
-            </ul>
+            <div id="add">
+              <%for(var i=0; i < result.length; i++){%>
+              <ul class="order_message"
+                style="border-bottom: 1px solid #d4d4d4;width: 100%;height: 50px;padding-left: 0;margin-bottom: 0;">
+                <li><%=result[i].username%></li>
+                <li><%=result[i].is_user%></li>
+                <li><%=result[i].name%></li>
+                <li><%=result[i].tel%></li>
+                <li><%=result[i].state%></li>
+                <li>
+                    <span style="color: red;font-size: 12px;cursor:pointer;" id="del<%=i%>">删除</span>
+                    <span style="color: blue;font-size: 12px;cursor:pointer" id="change">修改</span>
+                </li>
+              </ul>
+              <%}%>
+              </div>
           </div>
         </div>
       </div>
@@ -156,5 +114,32 @@
     </div>
   </div>
 </body>
-
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script>
+  for (let index = 0; index < $('.order_message').length; index++) {
+      $("#del"+index).click(() => {
+      // window.location = "http://localhost:8000/b1/user_management"
+      $.ajax({
+      	type: 'post',
+      	url: 'http://localhost:8000/b1/user_management/del',
+      	data: {
+      		username:$("#del"+index).parent().parent()[0].children[0].innerHTML
+      	},
+      	success: function (data) {
+      		if (data == "delete success") {
+      			window.alert("delete success");
+      			window.location = "http://localhost:8000/b1/user_management";
+      		} else if (data == "没有信息") {
+      			window.alert("没有信息");
+      			window.location = "http://localhost:8000/b1/user_management";
+      		}
+      	}
+      })
+    })
+  }
+  
+  $(".order_message #change").click(() => {
+		window.location = "http://localhost:8000/b1/user_management/change"
+	})
+</script>
 </html>

@@ -4,5 +4,4 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('order_management_order');
 });
-
 module.exports = router;

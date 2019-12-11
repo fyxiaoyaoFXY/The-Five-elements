@@ -45,8 +45,7 @@ ul li:first-child{
     font-size: 20px;
 }
 ul a:hover{
-    background: #ff5722;
-    color:white;
+    color:red;
 }
 .contentRight{
     width: 980px;
@@ -121,5 +120,6 @@ input{
 }
 .order_message>li:first-child{
     font-size: 12px;
+    text-align: center;
     
 }

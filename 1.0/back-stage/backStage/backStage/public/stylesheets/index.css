@@ -45,8 +45,7 @@ ul li:first-child{
     font-size: 20px;
 }
 ul a:hover{
-    background: #ff5722;
-    color:#fff
+    color:red
 }
 .contentRight{
     width: 980px;
