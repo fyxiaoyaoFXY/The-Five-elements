@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './Cart.css'
 import { List, InputItem, TextareaItem,Grid} from 'antd-mobile';
 import ListItem from './ListItem';
-import {Link} from 'react-router-dom';
 
 export default class cart extends Component {
     constructor () {
@@ -82,7 +81,7 @@ export default class cart extends Component {
         return (
             <div>
                 <div className="Ctop">
-                    <Link to='/apphome' style={{color:'black'}}><i className="iconfont icon-fanhui" style={{fontSize:20,color:'black',paddingTop:10,height:30,float:'left'}}></i></Link>
+                    <i className="iconfont icon-ico_leftarrow" style={{fontSize:20,color:'black',paddingTop:10,height:30,float:'left'}}></i>
                     <p style={{display:'block',fontSize:18,color:'black',paddingTop:10,margin:0,textAlign:'center'}}>购物车</p>
                 </div>
                 <div className="Cb1">

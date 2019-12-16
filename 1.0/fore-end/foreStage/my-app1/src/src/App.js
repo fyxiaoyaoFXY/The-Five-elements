@@ -19,7 +19,6 @@ export default class App extends React.Component {
         <Route path='/greeting' component={Greeting}/> 
         <Route path='/register' component={Register}/> 
         <Route path='/login' component={Login}/> 
-        
         <Route path='/apphome' component={Apphome}/> 
         {/* <Route path='/home' component={Home}/>
         <Route path='/search' component={Search}/>       

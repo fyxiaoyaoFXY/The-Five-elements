@@ -13,8 +13,8 @@ export default class Shoptab extends Component {
       <div>
         <Switch>
           <Route exact path='/apphome' component={Shop}/> 
-          <Route path='/apphome/shoptab/shop_detail_one/:id' component={Shop_detail_one}/> 
-          <Route path='/apphome/shoptab/shop_detail_two/:id' component={Shop_detail_two}/> 
+          <Route path='/apphome/shoptab/shop_detail_one' component={Shop_detail_one}/> 
+          <Route path='/apphome/shoptab/shop_detail_two' component={Shop_detail_two}/> 
           <Route path='/apphome/shoptab/shop_publish' component={Shop_publish}/>
           <Route path='/apphome/shoptab/cart' component={Cart}/>
         </Switch>

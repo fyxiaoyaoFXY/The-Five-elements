@@ -11,48 +11,17 @@ const tabs = [
   };
   
 export default class Shop_detail_one extends Component {
-    constructor() {
-        super();
-        this.state= {
-            data:[],
-            data1:[],
-            data2:[],
-            data3:[],
-            data4:[],
-            imgHeight: 200,
-            open: true
-        }
+    state = {
+        data: ['15','10'],
+        imgHeight: 200,
+        open: true,
+        dataImg:[
+            {img:'./images/12.png'},
+            {img:'./images/12.png'},
+            {img:'./images/12.png'},
+            {img:'./images/12.png'}
+          ]
     }
-    componentDidMount() {
-        console.log(this.props.match.params.id)
-        fetch('http://localhost:5000/detail1?id='+this.props.match.params.id,{
-            "method":"get", 
-            // params:JSON.stringify({"id":1})
-            // headers: {'Content-Type': 'application/json; charset=utf-8'},
-           })
-          .then(res=>res.json())
-          .then(res=>{
-              console.log(res)
-              this.setState({
-                data:res[0]
-              })
-              this.setState({
-                data1:[this.state.data.img1,this.state.data.img2]
-              })
-              this.setState({
-                data2:this.state.data.place1.split('、')
-              })
-              this.setState({
-                data3:this.state.data.place2.split('、')
-              })
-              this.setState({
-                data4:this.state.data.money.split('、')
-              })
-             
-            }
-          )
-    }
-    
     render(){
         return(
             <div>
@@ -62,7 +31,7 @@ export default class Shop_detail_one extends Component {
                 ]}
                 onLeftClick={this.onOpenChange}
                 rightContent={[
-                    <Link to='/apphome/shoptab/cart' style={{color:'black'}}><i style={{fontSize:22,lineHeight:'22px',marginRight:'8px'}} className='iconfont icon-gouwuche'></i></Link>
+                <i style={{fontSize:22,lineHeight:'22px',marginRight:'8px'}} className='iconfont icon-gouwuche'></i>
                 
             ]}
             ></NavBar>
@@ -70,19 +39,20 @@ export default class Shop_detail_one extends Component {
                     <Carousel
                     autoplay={true}
                     infinite
-                    // beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                    // afterChange={index => console.log('slide to', index)}
+                    beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+                    afterChange={index => console.log('slide to', index)}
                     style={{width: '100%', height: this.state.imgHeight,margin:'0 auto'}}
                     >
-                    {this.state.data1.map(val => {
-                        return <a
+                    {this.state.data.map(val => (
+                        <a
                         key={val}
                         href="http://www.alipay.com"
                         style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
                         >
                             
                         <img
-                            src={val}
+                            //src={require(`./images/${val}.png`)}
+                            src={`./images/${val}.png`}
                             alt=""
                             style={{ width: '100%', verticalAlign: 'top' }}   //图片记得写上宽度百分之百
                             onLoad={() => {
@@ -92,25 +62,24 @@ export default class Shop_detail_one extends Component {
                             }}
                         />
                         </a>
-    })}
+                    ))}
                 </Carousel>
-                <p style={{width:'90%',margin:'30px auto'}}>{this.state.data.tContent}</p>
+                <p style={{width:'90%',margin:'0 auto'}}>世界原版经典音乐剧《猫》CATS 【2020中国“猫”年震撼回归】</p>
             </div>
             <div style={{width:'90%',margin:'0 auto',border:'0px solid #8794a8',marginTop:'20px'}}><h1 style={{margin:'0 auto',fontSize:'25px'}}>城市</h1> <SegmentedControl
-                
-                values={this.state.data2}
+                values={['北京', '上海', '南京']}
                 tintColor={'#8794a8'}
                 style={{ height: '40px', width: '250px'}}
                 />
             </div>
             <div style={{width:'90%',margin:'0 auto',border:'0px solid #8794a8'}}><h1 style={{margin:'0 auto',fontSize:'25px'}}>场次</h1> <SegmentedControl
-                values={this.state.data3}
+                values={['北京', '上海', '南京']}
                 tintColor={'#8794a8'}
                 style={{ height: '40px', width: '250px'}}
                 />
             </div>
             <div style={{width:'90%',margin:'0 auto',border:'0px solid #8794a8'}}><h1 style={{margin:'0 auto',fontSize:'25px'}}>票价</h1> <SegmentedControl
-                values={this.state.data4}
+                values={['北京', '上海', '南京']}
                 tintColor={'#8794a8'}
                 style={{ height: '40px', width: '250px'}}
                 />
@@ -125,26 +94,20 @@ export default class Shop_detail_one extends Component {
 
             <div>
                 <WhiteSpace />
-                <Tabs tabs={tabs} initialPage={2} animated={false} useOnPan={true} initialPage={0}>
-                <div style={{  alignItems: 'center', justifyContent: 'center', height: '350px', backgroundColor: '#fff' }}>
-                    <ul style={{listStyle:'none',margin:'10px auto'}}>
-                        <li style={{height:'auto',width:'100%',margin:'10px auto'}} >
-                            <img style={{height:'auto',width:'100%',margin:'0px auto'}} src={this.state.data.img_1}/>   
-                            <div dangerouslySetInnerHTML={{__html: this.state.data.detail1}}></div>
-                        </li>
-                        <li style={{height:'auto',width:'100%',margin:'20px auto'}} >
-                            <img style={{height:'auto',width:'100%',margin:'0px auto'}} src={this.state.data.img_2}/> 
-                            <div dangerouslySetInnerHTML={{__html: this.state.data.detail2}}></div>
-                        </li>
-                        <li style={{height:'auto',width:'100%',margin:'20px auto'}} >
-                            <img style={{height:'auto',width:'100%',margin:'0px auto'}} src={this.state.data.img_3}/>   
-                            <div dangerouslySetInnerHTML={{__html: this.state.data.detail3}}></div>
-                        </li>
-                    </ul> 
+                <Tabs tabs={tabs} initialPage={2} animated={false} useOnPan={false}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '350px', backgroundColor: '#fff' }}>
+                <ul style={{listStyle:'none',margin:'0 auto'}}>
+                        {
+                            this.state.dataImg.map((item,index)=>(
+                            <li style={{height:'180px',width:'90%',margin:'20px auto',border:'1px solid #8794a8'}} key={index}>
+                                <img style={{height:'180px',width:'100%',margin:'0px auto'}} src={item.img}/>   
+                            </li>
+                            ))
+                        }
+                </ul> 
                 </div>
-                
-                <div style={{padding:'20px', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '350px', backgroundColor: '#fff' }}>                    
-                    <div dangerouslySetInnerHTML={{__html: this.state.data.need}}></div>                    
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '350px', backgroundColor: '#fff' }}>
+                    Content of second tab
                 </div>
                 </Tabs>
                 <WhiteSpace />

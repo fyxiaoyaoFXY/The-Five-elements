@@ -13,18 +13,18 @@ export default class Eye extends Component {
     this.state = {
       dataItem: [],
       data: [
-        { icon: 'iconfont icon-huazhan', tit: '画展', url: '/Yanchang' },
-        { icon: 'iconfont icon-sheying', tit: '话剧', url: '/Geju' },
-        { icon: 'iconfont icon-songdance', tit: '非遗', url: '/Yinyueju' },
-        { icon: 'iconfont icon-diaosu2', tit: '摄影展', url: '/Yinyuehui' },
-        { icon: 'iconfont icon-sydney1162852easyiconnet', tit: '歌剧', url: '/Xiqu' },
-        { icon: 'iconfont icon-feiyihuicuichuantongjiyi-_huaban', tit: '漫展', url: '/Xiangsheng' },
+        { icon: 'iconfont icon-huazhan', tit: '演唱会', url: '/Yanchang' },
+        { icon: 'iconfont icon-sheying', tit: '歌剧', url: '/Geju' },
+        { icon: 'iconfont icon-songdance', tit: '音乐会', url: '/Yinyueju' },
+        { icon: 'iconfont icon-diaosu2', tit: '相声', url: '/Yinyuehui' },
+        { icon: 'iconfont icon-sydney1162852easyiconnet', tit: '戏曲', url: '/Xiqu' },
+        { icon: 'iconfont icon-feiyihuicuichuantongjiyi-_huaban', tit: '音乐剧', url: '/Xiangsheng' },
       ]
     }
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000/apphome/hometab/eye', {
+    fetch('http://localhost:5000/apphome/hometab/ear', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -39,7 +39,7 @@ export default class Eye extends Component {
     })
   }
   click=(id)=>{
-    fetch('http://localhost:5000/apphome/hometab/eye?tab_id='+id, {
+    fetch('http://localhost:5000/apphome/hometab/ear?tab_id='+id, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -92,7 +92,7 @@ export default class Eye extends Component {
         <ul style={{ listStyle: 'none', margin: '10px auto' }}>
           {
             this.state.dataItem.map((item, index) => (
-              <Link to={'/apphome/hometab/details/' + item.article_id}>
+              <Link to={'/apphome/hometab/details1/' + item.article_id}>
                 {/* <Link to='/apphome/hometab/details'> */}
                 <li style={{ height: '110px', width: '95%', margin: '0 auto', marginBottom: '10px', border: '1px solid #8794a8' }} key={index}>
                   <img style={{ width: '20%', height: '80px', float: 'left' }} src={item.img} />
