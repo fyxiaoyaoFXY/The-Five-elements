@@ -2,9 +2,6 @@
     position:fixed;
     bottom:0px;
 } 
-.am-tabs-tab-bar-wrap{
-    display: none;
-}
 .message-item .message-item-content{
     background-color:pink;
 }

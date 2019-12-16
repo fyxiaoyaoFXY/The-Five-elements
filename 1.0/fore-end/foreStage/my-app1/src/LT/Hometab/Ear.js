@@ -3,6 +3,7 @@ import { NavBar, Carousel, Grid, SearchBar, SegmentedControl, ListView, Accordio
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
 
+
 const axios = require('axios');
 const querystring = require('querystring');
 
@@ -12,18 +13,18 @@ export default class Eye extends Component {
     this.state = {
       dataItem: [],
       data: [
-        { icon: 'iconfont icon-huazhan', tit: '画展'},
-        { icon: 'iconfont icon-sheying', tit: '话剧'},
-        { icon: 'iconfont icon-songdance', tit: '非遗'},
-        { icon: 'iconfont icon-diaosu2', tit: '摄影展'},
-        { icon: 'iconfont icon-sydney1162852easyiconnet', tit: '雕塑展'},
-        { icon: 'iconfont icon-feiyihuicuichuantongjiyi-_huaban', tit: '漫展'},
+        { icon: 'iconfont icon-huazhan', tit: '演唱会', url: '/Yanchang' },
+        { icon: 'iconfont icon-sheying', tit: '歌剧', url: '/Geju' },
+        { icon: 'iconfont icon-songdance', tit: '音乐会', url: '/Yinyueju' },
+        { icon: 'iconfont icon-diaosu2', tit: '相声', url: '/Yinyuehui' },
+        { icon: 'iconfont icon-sydney1162852easyiconnet', tit: '戏曲', url: '/Xiqu' },
+        { icon: 'iconfont icon-feiyihuicuichuantongjiyi-_huaban', tit: '音乐剧', url: '/Xiangsheng' },
       ]
     }
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000/apphome/hometab/eye', {
+    fetch('http://localhost:5000/apphome/hometab/ear', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -37,41 +38,41 @@ export default class Eye extends Component {
         console.log(this.state.dataItem);
     })
   }
-  change=(ev)=>{
-    fetch('http://localhost:5000/apphome/hometab/eye/search',{
-      method:'GET',
+  change = (ev) => {
+    fetch('http://localhost:5000/apphome/hometab/ear/search', {
+      method: 'GET',
     })
-    .then(res => res.json())
+      .then(res => res.json())
       .then(res => {
         console.log(res);
         this.setState({
           dataItem: res
         })
         console.log(this.state.dataItem)
-    }).then(()=>{
-      console.log(this.state.dataItem);
-  })
+      }).then(() => {
+        console.log(this.state.dataItem);
+      })
   }
 
-  submit= (value) =>{
+  submit = (value) => {
     // console.log(value);
-  fetch('http://localhost:5000/apphome/hometab/eye/search?content='+value, {
-    method: 'GET',
-  })
-    .then(res => res.json())
-    .then(res => {
-      // console.log(this.state.value);
-      this.setState({
-        dataItem: res
+    fetch('http://localhost:5000/apphome/hometab/ear/search?content=' + value, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(res => {
+        // console.log(this.state.value);
+        this.setState({
+          dataItem: res
+        })
+        console.log(this.state.dataItem)
+      }).then(() => {
+        // console.log(id);
       })
-      console.log(this.state.dataItem)
-  }).then(()=>{
-    // console.log(id);
-  })
-}
-  
+  }
   click=(id)=>{
-    fetch('http://localhost:5000/apphome/hometab/eye/class?tab_id='+id, {
+    console.log(id)
+    fetch('http://localhost:5000/apphome/hometab/ear/class?tab_id='+id, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -92,13 +93,8 @@ export default class Eye extends Component {
           leftContent={[
             <Link to='/apphome' style={{ color: 'black' }}><i style={{ fontSize: 22, lineHeight: '22px', marginLeft: '-10px' }} className='iconfont icon-fanhui'></i></Link>,
           ]}
-        >EYE</NavBar>
-        {/* <SearchBar placeholder="Search" maxLength={8} /> */}
-        <SearchBar
-         placeholder="Search" 
-         maxLength={20}
-         onSubmit={this.submit}
-        />
+        >EAR</NavBar>
+        <SearchBar placeholder="Search" maxLength={8} onSubmit={this.submit} />
         <Grid data={this.state.data}
           columnNum={3}
           renderItem={data => (
@@ -106,7 +102,7 @@ export default class Eye extends Component {
             //   this.state.dataItem.map((item, index) => {
             //     if(this.state.data.tit==item.tab_id){
             //       return(
-                    <Link to={`/apphome/hometab/eye/${data.tit}`}>
+                    <Link to={`/apphome/hometab/ear/${data.tit}`}>
                     <div onClick={()=>this.click(data.tit)} style={{ border: '1px solid #8794a8', backgroundColor: '#8794a8' }}>
                       <div style={{ width: '100%', height: 85 }} onClick={this.onClick}>
                         {
@@ -129,7 +125,7 @@ export default class Eye extends Component {
         <ul style={{ listStyle: 'none', margin: '10px auto' }}>
           {
             this.state.dataItem.map((item, index) => (
-              <Link to={'/apphome/hometab/details/' + item.article_id}>
+              <Link to={'/apphome/hometab/details1/' + item.article_id}>
                 {/* <Link to='/apphome/hometab/details'> */}
                 <li style={{ height: '110px', width: '95%', margin: '0 auto', marginBottom: '10px', border: '1px solid #8794a8' }} key={index}>
                   <img style={{ width: '20%', height: '80px', float: 'left' }} src={item.img} />
