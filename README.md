@@ -10,8 +10,8 @@ EYE&EAR是一个为人们带来文体娱乐活动第一消息的APP，方便用�
   - GitHub：https://github.com/Qiaoxiaoyue-799/The-Five-elements
 
 ### 项目成员
-  *乔晓悦（）
-    *Email：
-    *GitHub：
+* 编程语言  
+    * 脚本语言  
+        * Python 
 
 
