@@ -11,7 +11,11 @@ EYE&EAR是一个为人们带来文体娱乐活动第一消息的APP，方便用�
 
 ### 项目成员
 * 乔晓悦 
-    * email
-    * GitHub：  
-
+    * Email：
+    * GitHub：
+* 
+    * Email：
+    * GitHub：
+    
+### 项目截图
 
