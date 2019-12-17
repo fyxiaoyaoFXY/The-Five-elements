@@ -141,9 +141,10 @@ export default class cart extends Component {
                             <span style={{display:'block',paddingLeft:'50%',margin:0,float:'left'}}>
                                 已选中：{this.state.finished}
                             </span>
-                            <button style={{height:30,width:80,border:'1px solid rgb(241, 98, 42)',
+                            <button style={{height:40,width:80,border:'1px solid rgb(241, 98, 42)',
                             borderRadius:'5px',marginLeft:15,color:'white',
-                            background:'rgb(241, 98, 42)'}}>
+                            background:'rgb(241, 98, 42)',
+                            textAlign:'center',}}>
                                 购买
                             </button>
                         </li>
@@ -158,7 +159,7 @@ export default class cart extends Component {
                         renderItem={dataItem => (
                             <div>
                                 <div style={{width:'100%',height:140,paddingTop:20}}>
-                                <img src={dataItem.icon} style={{ width: '120px', height: '130px' }} alt="" />
+                                <img src={dataItem.icon} style={{ width: '120px', height: '100px' }} alt="" />
                                 </div>
                                 <div >{dataItem.tit}</div>
                                 {/* style={{fontSize:25,color:'black',height:80,width:80,paddingTop:1,float:'left'}} */}

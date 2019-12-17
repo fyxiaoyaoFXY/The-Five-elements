@@ -7,40 +7,59 @@ export default class AppHome extends Component {
         data: ['5','3','4'],
         imgHeight: 176,
         open: false,
+        name:[],
     }
    
     onOpenChange = (...args) => {
     console.log(args);
     this.setState({ open: !this.state.open });
     }
+    componentDidMount(){
+      //api请求函数
+
+    fetch('http://localhost:5000/login',{
+      method:'GET', 
+      headers: {'Content-Type': 'application/json; charset=utf-8'},
+    })
+    .then(res=>res.json())
+    .then(res=>{
+        this.setState({
+          name:res[0]
+        })
+        console.log(this.state.name);
+    } 
+    )
+  
+}
   render() {
     const sidebar = (
-    <List STYLE={{background:'#c4c9d9'}}>
-        {['用户名称','个人主页', '通知', '会员中心', '设置','退出'].map((i, index) => {
+    <List style={{background:'#c4c9d9'}}>
+        {['用户名称','个人主页', '联系我们', '会员中心', '设置','退出'].map((i, index) => {
         if(index === 0){
             return (<List.Item key={index}
-                style={{marginBottom:'20px',marginTop:'10px'}}
-            >
-            <img src={`./images/5.png`} style={{ width: '60px',height:'60px',marginLeft:'110px',border:'1px solid black',borderRadius:"50%"}} />
-            <p style={{marginLeft:'110px',marginTop:'10px'}}>{i}</p></List.Item>);
+                style={{marginBottom:'10px',marginTop:'10px'}}
+            ><Link to='/apphome/hometab/member' style={{color:'black'}}>
+            <img src={this.state.name.avatar} style={{ width: '60px',height:'60px',marginLeft:'110px',border:'1px solid black',borderRadius:"50%"}} />
+            <p style={{marginLeft:'120px',marginTop:'10px',marginBottom:30}}>{this.state.name.username}</p></Link></List.Item>);
           }    
         if(index === 1){
           return (<List.Item key={index}
-                style={{marginBottom:'30px'}}
+                style={{marginBottom:'10px'}}
           > 
             <Link to='/apphome/hometab/member' style={{color:'black'}}><i style={{fontSize:22,lineHeight:'22px',marginRight:'8px'}} className='iconfont icon-wode3'></i>
             {i}</Link></List.Item>);
         }
         if(index === 2){
           return (<List.Item key={index}
-            style={{marginBottom:'30px'}}
+            style={{marginBottom:'10px'}}
           > 
             <i style={{fontSize:22,lineHeight:'22px',marginRight:'8px'}} className='iconfont icon-notice'></i>
-            {i}</List.Item>);
+            <Link to='/apphome/hometab/connectus' style={{color:'black'}}>
+            {i}</Link></List.Item>);
         }
         if(index === 3){
           return (<List.Item key={index}
-            style={{marginBottom:'30px'}}
+            style={{marginBottom:'10px'}}
           > 
             <Link to='/apphome/hometab/vip' style={{color:'black'}}><i style={{fontSize:22,lineHeight:'22px',marginRight:'8px'}} className='iconfont icon-huiyuanzhongxin'></i>
             {i}</Link></List.Item>);
@@ -48,22 +67,22 @@ export default class AppHome extends Component {
         }
         if(index === 4){
           return (<List.Item key={index}
-            style={{marginBottom:'30px'}}
+            style={{marginBottom:'10px'}}
           > 
             <i style={{fontSize:22,lineHeight:'22px',marginRight:'8px'}} className='iconfont icon-settings'></i>
             {i}</List.Item>);
         }
         if(index === 5){
             return (<List.Item key={index}
-              style={{marginTop:'60px'}}
+              style={{marginTop:'160px'}}
             > 
               <i style={{fontSize:22,lineHeight:'22px',marginRight:'8px'}} className='iconfont icon-tuichu'></i>
-              {i}</List.Item>);
+              <Link to="../login" style={{color:"black"}}>{i}</Link></List.Item>);
           }
     })}
     </List>);
     return (
-      <div>
+      <div style={{height:'auto'}}>
         
         <NavBar mode="light" style={{background:'white',color:'black'}}
             leftContent={[
@@ -79,9 +98,9 @@ export default class AppHome extends Component {
         
         <Drawer
         className="my-drawer"
-        style={{ minHeight: document.documentElement.clientHeight ,backgroundImage: "url(" + "../images/13.png" + ")"}}
+        style={{ height: 573 ,backgroundImage: "url(" + "../images/13.png" + ")"}}
         enableDragHandle
-        contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
+        contentStyle={{ color: '#A6A6A6', textAlign: 'center', marginTop: 42 }}
         sidebar={sidebar}
         open={this.state.open}
         onOpenChange={this.onOpenChange}

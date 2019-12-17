@@ -25,6 +25,7 @@ export default class Apphome extends React.Component {
           unselectedTintColor="black" //未选中颜色
           tintColor="white"  //选中颜色
           barTintColor='#8794a8' //背景颜色
+          hidden={this.state.hidden}
           style={{height: '100px%', width: '100%'}}
         >
           <TabBar.Item

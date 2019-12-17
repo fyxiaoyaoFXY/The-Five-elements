@@ -13,12 +13,12 @@ export default class Eye extends Component {
     this.state = {
       dataItem: [],
       data: [
-        { icon: 'iconfont icon-huazhan', tit: '演唱会', url: '/Yanchang' },
-        { icon: 'iconfont icon-sheying', tit: '歌剧', url: '/Geju' },
-        { icon: 'iconfont icon-songdance', tit: '音乐会', url: '/Yinyueju' },
-        { icon: 'iconfont icon-diaosu2', tit: '相声', url: '/Yinyuehui' },
-        { icon: 'iconfont icon-sydney1162852easyiconnet', tit: '戏曲', url: '/Xiqu' },
-        { icon: 'iconfont icon-feiyihuicuichuantongjiyi-_huaban', tit: '音乐剧', url: '/Xiangsheng' },
+        { icon: 'iconfont iconyanchanghui', tit: '演唱会', url: '/Yanchang' },
+        { icon: 'iconfont icongejuyuan', tit: '歌剧', url: '/Geju' },
+        { icon: 'iconfont iconyinlehui28', tit: '音乐会', url: '/Yinyueju' },
+        { icon: 'iconfont iconxiangshengxiaopin', tit: '相声', url: '/Yinyuehui' },
+        { icon: 'iconfont iconxiqu', tit: '戏曲', url: '/Xiqu' },
+        { icon: 'iconfont iconyinlehui1', tit: '音乐剧', url: '/Xiangsheng' },
       ]
     }
   }
