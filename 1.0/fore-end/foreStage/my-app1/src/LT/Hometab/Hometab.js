@@ -11,6 +11,7 @@ import MyChat from './MyChat';
 import Member from './Member';
 import Vip from './Vip';
 import Search from './Search';
+import Connectus from './Connectus';
 
 export default class Hometab extends Component {
   render() {
@@ -28,6 +29,7 @@ export default class Hometab extends Component {
             <Route path='/apphome/hometab/author1/:id' component={Author1}/> 
             <Route path='/apphome/hometab/chat' component={MyChat}/>
             <Route path='/apphome/hometab/member' component={Member}/>
+            <Route path='/apphome/hometab/connectus' component={Connectus}/>
             <Route path='/apphome/hometab/vip' component={Vip}/>
             <Route path='/apphome/hometab/search' component={Search}/>
         </Switch>

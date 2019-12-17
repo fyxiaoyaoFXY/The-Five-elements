@@ -9,9 +9,28 @@ const tabs = [
       {icon:'images/5.png'},
       {icon:'images/8.png'},
       {icon:'images/9.png'}
-  ]
+  ];
+
 export default class Community extends Component {
+    componentDidMount(){
+        //api请求函数
+  
+      fetch('http://localhost:5000/login',{
+        method:'GET', 
+        headers: {'Content-Type': 'application/json; charset=utf-8'},
+      })
+      .then(res=>res.json())
+      .then(res=>{
+          this.setState({
+            name:res[0]
+          })
+          console.log(this.state.name);
+      } 
+      )
+    
+  }
     state = {
+        name : [],
         dataItem:[
           {img:'./images/5.png',title:'毕加索画展的群'},
           {img:'./images/10.png',title:'皮影展的群'},
@@ -19,6 +38,7 @@ export default class Community extends Component {
           {img:'./images/9.png',title:'毕加索画展的群'},
         ]
       };
+      
     render() {
         return (
             <div style={{position: 'absolute',width:'100%',height:'100%'}}>
@@ -32,17 +52,17 @@ export default class Community extends Component {
                                     width:80,
                                     height:80,
                                     borderRadius:20,
-                                    backgroundImage:'url('+'/images/16.jpg'+')',
+                                    backgroundImage:'url('+this.state.name.avatar+')',
                                     backgroundSize:'120% 100%',
                                     float:'left',
                                     marginRight:15
                                 }}></div>
-                        <p style={{margin:0,fontSize:25,}}>Kika Kong</p>
+                        <p style={{margin:0,fontSize:25,}}>{this.state.name.username}</p>
                         <button style={{backgroundColor:'#8794a8',width:50,height:25,marginTop:15,marginLeft:1,marginRight:10,backgroundColor:'#fff',border:'1px solid #d4d4d4',borderRadius:5,fontSize:15}}>
-                            粉丝<span>0</span>
+                            粉丝<span>{this.state.name.like_number}</span>
                         </button>
                         <button style={{backgroundColor:'#8794a8',width:50,height:25,marginTop:15,backgroundColor:'#fff',border:'1px solid #d4d4d4',borderRadius:5,fontSize:15}}>
-                            关注<span>0</span>
+                            关注<span>{this.state.name.liked_number}</span>
                         </button>
                     </div>
                     <div style={{borderTop:'1px solid #fff',height:'100%',backgroundColor:'#fff'}}>

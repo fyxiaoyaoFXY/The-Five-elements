@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../index_fxy.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Chat from 'chat-react';
 // import {Native} from 'react-router-dom';
 // import Sendmessage from './Sendmessage';
@@ -65,49 +65,27 @@ export default class MyChat extends Component {
   onChange = (key) => {
     console.log(key);
   }
-    // constructor(...args) {
-    //     super(...args);
-    //     this.state = {
-    //       todo:[],
-    //         a:100,
-    //         b:100
-    //     };
-    //   }
-      
-     
-    // addItem = (data) => {
-    //     //this.state.todo.push(data);
-    //     this.setState({
-    //         todo:[...this.state.todo,data]
-    //     })
-    // }
-    // delItem = (idx)=>{ 
-       
-    //     let todo = [...this.state.todo]//拷贝
-    //     todo.splice(idx,1);
-    
-    // }
-    render() {
-      const { inputValue, messages, timestamp } = this.state;
+  render() {
+    const { inputValue, messages, timestamp } = this.state;
     const userInfo = {
       avatar: "./images/16.jpg",
       userId: "59e454ea53107d66ceb0a598",
       name: 'ricky'
     };
-        return (
-<div style={{height:'100%',background:"white"}}>
-            <Chat
-              style={{width:'100%',height:'80%',position:'fixed',top:'0px'}}
-              ref={el => this.chat = el}
-              dataSource={messages}
-              userInfo={userInfo}
-              value={inputValue}
-              sendMessage={this.sendMessage}
-              timestamp={timestamp}
-              placeholder="请输入"
-              messageListStyle={{ width: '100%', height: '900px', color: 'black',background:'white' }}
+    return (
+      <div style={{ height: '100%', background: "white" }}>
+        <Chat
+          style={{ width: '100%', height: '80%', position: 'fixed', top: '0px' }}
+          ref={el => this.chat = el}
+          dataSource={messages}
+          userInfo={userInfo}
+          value={inputValue}
+          sendMessage={this.sendMessage}
+          timestamp={timestamp}
+          placeholder="请输入"
+          messageListStyle={{ width: '100%', height: '900px', color: 'black', background: 'white' }}
         />
-        </div>
-        )
-    }
+      </div>
+    )
+  }
 }
