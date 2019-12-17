@@ -46,7 +46,13 @@ export default class Search extends Component {
                 })
                 console.log(this.state.dataItem)
             }).then(() => {
-                if(value!='')
+                var a=true;
+                for(var i = 0; i < this.state.todo.length; i++){
+                    if(value == this.state.todo[i]){
+                        a = false;
+                    }
+                }
+                if(value!='' && a)
                     this.addItem(value);
             })
     }
@@ -102,7 +108,7 @@ export default class Search extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={{width: '100%',height:'108%',backgroundColor: '#fff',zIndex:999,position:'absolute'}}>
                 {/* 搜索栏 */}
                 <div style={{ width: '100%', height: 40 }}>
                     <Link to='/apphome'><i className="iconfont icon-fanhui" style={{ fontSize: 20, color: 'black', height: 40, paddingTop: 5, float: 'left' }}></i></Link>
@@ -146,7 +152,7 @@ export default class Search extends Component {
                 {/* 历史搜索栏 */}
                 <div id="s1">
                     <p>搜索发现</p>
-                    <ul>
+                    <ul style={{float:'left'}}>
                         {
                             this.state.todo.map((item, idx) =>
                                 <li key={idx}>
@@ -154,9 +160,9 @@ export default class Search extends Component {
                                 </li>)
                         }
                     </ul>
-                    <span onClick={(e) => this.delAll(e)}>清除历史记录</span>
+                    <p style={{width:'30%',height:'5%',fontSize:12,border:'1px solid black',borderRadius:'10px',textAlign:'center',float:'left'}} onClick={(e) => this.delAll(e)}>清除历史记录</p>
                 </div>
-                <ul style={{ listStyle: 'none', margin: '10px auto' }}>
+                <ul style={{ listStyle: 'none', margin: '10px auto',width:'100%',height:'50%',overflow:'auto'}}>
                     {
                         this.state.dataItem.map((item, index) => (
                             <Link to={'/apphome/hometab/details/' + item.article_id}>

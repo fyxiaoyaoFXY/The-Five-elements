@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './vip.css';
 import { Icon } from 'antd-mobile';
 import {HashRouter  as Router,withRouter,Route,Link,Switch,Redirect} from 'react-router-dom';
-import { Grid,Steps,WhiteSpace } from 'antd-mobile';
+import { Grid,Steps,WhiteSpace,NavBar } from 'antd-mobile';
 const Step = Steps.Step;
 const steps = [{
     title: '1级',
@@ -31,10 +31,12 @@ export default class VIP extends Component {
     }
     render() {
         return (
-            <div style={{width:'100%'}}>
-                <div style={{width:'100%',backgroundColor:'#8794a8'}}>
-                <Link to='/apphome' style={{color:'black'}}><Icon style={{width:"40px",height:"40px"}} type="left" /></Link>
-                </div>
+            <div style={{width: '100%',height:'108%',backgroundColor: '#fff',zIndex:999,position:'absolute'}}>
+                <NavBar mode="light" style={{ background: '#8794a8', color: 'black' }}
+                    leftContent={[
+                        <Link to='/apphome' style={{ color: 'black' }}><i style={{ fontSize: 22, lineHeight: '22px', marginLeft: '-10px' }} className='iconfont icon-fanhui'></i></Link>,
+                    ]}
+                    >会员中心</NavBar>
                 <div className="Vheader">
                     <div className="Vmessage">
                         <img src="./images/16.jpg" id="Vtou" style={{width:80,height:80}}></img>

@@ -39,7 +39,7 @@ export default class Author extends Component {
       }
     render() {
         return (
-            <div style={{position: 'absolute',width:'100%',height:'100%'}}>
+            <div style={{width: '100%',height:'108%',backgroundColor: '#fff',zIndex:999,position:'absolute',overflow:'auto'}}>
                 {
                 this.state.dataItem.map((item, index) => {
                     if(item.article_id==id){

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavBar, Icon,Tabs ,Carousel,Grid,Drawer, List,} from 'antd-mobile';
 import {HashRouter  as Router,withRouter,Route,Link,Switch,Redirect} from 'react-router-dom';
 import Eye from './Eye'
-export default class AppHome extends Component {
+export default class Home extends Component {
     state = {
         data: ['5','3','4'],
         imgHeight: 176,

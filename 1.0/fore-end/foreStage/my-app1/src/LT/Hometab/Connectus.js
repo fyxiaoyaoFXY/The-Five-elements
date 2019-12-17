@@ -6,7 +6,7 @@ import {HashRouter  as Router,withRouter,Route,Link,Switch,Redirect} from 'react
 export default class Connectus extends Component {
     render() {
         return (
-            <div style={{backgroundColor:'#f0eff5',width:'100%',heihgt:'100%',position:' absolute',top:0,bottom:0}}>
+            <div style={{width: '100%',height:'108%',backgroundColor: '#fff',zIndex:999,position:'absolute'}}>
                 <div style={{width:'100%',height:'55px',background:'#8794a8',position:'relative'}}>
                     <Link to='/apphome' style={{color:'#e1e5df',background:"#8794a8"}}>
                         <Icon style={{width:"40px",height:"40px",marginTop:'10px',color:'#e1e5df'}} type="left" />

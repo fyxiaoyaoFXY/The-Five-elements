@@ -76,7 +76,7 @@ export default class MyChat extends Component {
       <div style={{ width:'100%',height: '100%', background: "white",zIndex:99999,position:'fixed',top:0,bottom:0}}>
         <NavBar mode="light" style={{width:'100%',background: '#8794a8', color: 'black' }}
           leftContent={[
-            <Link to={'/apphome/hometab/details/'+this.props.match.params.id} style={{ color: 'black' }}><i style={{ fontSize: 22, lineHeight: '22px', marginLeft: '-10px' }} className='iconfont icon-fanhui'></i></Link>,
+            <Link to='/apphome' style={{ color: 'black' }}><i style={{ fontSize: 22, lineHeight: '22px', marginLeft: '-10px' }} className='iconfont icon-fanhui'></i></Link>,
           ]}
         >聊天室</NavBar>
         <Chat

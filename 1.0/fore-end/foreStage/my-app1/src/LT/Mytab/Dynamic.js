@@ -174,7 +174,7 @@ export default class Dynamic extends Component {
     render() {
       const{files}=this.state; 
         return (
-            <div style={{width:"100%",height:"100%"}}>
+            <div style={{width: '100%',height:'108%',backgroundColor: '#fff',zIndex:999,position:'absolute',overflow:'auto'}}>
                 <div style={{background:"#8794a8",width:'100%',height:"40px"}}>
                     <Link to='/apphome' style={{color:'black'}}><i className='iconfont icon-web-icon-' 
                         style={{fontSize:30,color:'black',height:35,width:35,marginBottom:5,float:'left'}} ></i></Link>

@@ -45,11 +45,10 @@ router.post('/view', (req, res,next) => {
   console.log(index);
   var con = mysql.createConnection(dbconfig);
   con.connect();
-  con.query("select * from cart where id=?",[index+1], (err, result) => {
+  con.query("select * from cart where id=?",[index], (err, result) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(result)
       res.send({result:result});
     }
   })
@@ -63,7 +62,6 @@ router.get('/order', (req, res,next) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(result)
       res.render("order_management_order",{result:result});
     }
   })

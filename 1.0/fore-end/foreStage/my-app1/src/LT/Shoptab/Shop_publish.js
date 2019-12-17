@@ -153,7 +153,7 @@ export default class Shop_publish extends Component {
   render(){  
     const{files}=this.state; 
     return (
-      <div>
+      <div style={{width: '100%',height:'108%',backgroundColor: '#fff',zIndex:999,position:'absolute',overflow:'auto'}}>
         <div style={{width:'100%',height:'200px',backgroundColor:'#7a727f'}}>
             <div style={{width: '80px',height:'80px',margin:'0px auto'}}>
             <img src={`./images/16.jpg`} style={{marginTop:'20px',width: '80px',height:'80px',border:'1px solid black',borderRadius:"50%"}} />
@@ -182,5 +182,3 @@ export default class Shop_publish extends Component {
     );
   }
 }
-
-

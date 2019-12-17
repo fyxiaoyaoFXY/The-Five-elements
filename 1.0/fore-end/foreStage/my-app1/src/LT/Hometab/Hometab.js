@@ -27,7 +27,7 @@ export default class Hometab extends Component {
             <Route path='/apphome/hometab/details1/:id' component={Details1}/> 
             <Route path='/apphome/hometab/author/:id' component={Author}/> 
             <Route path='/apphome/hometab/author1/:id' component={Author1}/> 
-            <Route path='/apphome/hometab/chat' component={MyChat}/>
+            <Route path='/apphome/hometab/mychat/:id' component={MyChat}/>
             <Route path='/apphome/hometab/member' component={Member}/>
             <Route path='/apphome/hometab/connectus' component={Connectus}/>
             <Route path='/apphome/hometab/vip' component={Vip}/>

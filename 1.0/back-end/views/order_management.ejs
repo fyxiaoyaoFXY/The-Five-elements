@@ -100,11 +100,11 @@
 						<p
 							style="float: left;font-size: 14px;padding-top: 20px;padding-left: 15px;color: #424242;margin: 0;">
 							订单信息</p>
-						<p
+						<p id="excell" onclick="method5('dataTable')"
 							style="float: right;width: 50px;height: 20px;margin-right: 30px;margin-top:20px;border:none;border-radius: 10px;font-weight: bolder;color:rgb(43, 139, 204);font-size: 12px;">
 							打印表格</p>
 					</div>
-					<div id="context"
+					<div id="dataTable"
 						style="text-align:center;width: 960px;background-color:#fff;padding: 0 10px 0 10px;border:none;margin: 0;">
 						<ul id="order_message">
 							<li>订单编号</li>
@@ -150,6 +150,90 @@
 </body>
 <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 <script>
+var idTmr;
+
+function getExplorer() {
+	var explorer = window.navigator.userAgent;
+	//ie  
+	if(explorer.indexOf("MSIE") >= 0) {
+		return 'ie';
+	}
+	//firefox  
+	else if(explorer.indexOf("Firefox") >= 0) {
+		return 'Firefox';
+	}
+	//Chrome  
+	else if(explorer.indexOf("Chrome") >= 0) {
+		return 'Chrome';
+	}
+	//Opera  
+	else if(explorer.indexOf("Opera") >= 0) {
+		return 'Opera';
+	}
+	//Safari  
+	else if(explorer.indexOf("Safari") >= 0) {
+		return 'Safari';
+	}
+}
+
+function method5(tableid) {
+	if(getExplorer() == 'ie') {
+		var curTbl = document.getElementById(tableid);
+		var oXL = new ActiveXObject("Excel.Application");
+		var oWB = oXL.Workbooks.Add();
+		var xlsheet = oWB.Worksheets(1);
+		var sel = document.body.createTextRange();
+		sel.moveToElementText(curTbl);
+		sel.select();
+		sel.execCommand("Copy");
+		xlsheet.Paste();
+		oXL.Visible = true;
+
+		try {
+			var fname = oXL.Application.GetSaveAsFilename("Excel.xls",
+				"Excel Spreadsheets (*.xls), *.xls");
+		} catch(e) {
+			print("Nested catch caught " + e);
+		} finally {
+			oWB.SaveAs(fname);
+			oWB.Close(savechanges = false);
+			oXL.Quit();
+			oXL = null;
+			idTmr = window.setInterval("Cleanup();", 1);
+		}
+
+	} else {
+		tableToExcel(tableid)
+	}
+}
+
+function Cleanup() {
+	window.clearInterval(idTmr);
+	CollectGarbage();
+}
+var tableToExcel = (function() {
+	var uri = 'data:application/vnd.ms-excel;base64,',
+		template = '<html><head><meta charset="UTF-8"></head><body><table  border="1">{table}</table></body></html>',
+		base64 = function(
+			s) {
+			return window.btoa(unescape(encodeURIComponent(s)))
+		},
+		format = function(s, c) {
+			return s.replace(/{(\w+)}/g, function(m, p) {
+				return c[p];
+			})
+		}
+	return function(table, name) {
+		if(!table.nodeType)
+			table = document.getElementById(table)
+		var ctx = {
+			worksheet: name || 'Worksheet',
+			table: table.innerHTML
+		}
+		window.location.href = uri + base64(format(template, ctx))
+	}
+})()
+
 	$("#btn").click(function () {
 		$.ajax({
 			type: 'post',
@@ -179,7 +263,20 @@
 								" <li id='view' style='cursor:pointer;color:blue'>查看</li>"+
 							"</ul>");
 						$("#add").append(ulNode);
-						Pagination();
+            Pagination();
+            $(".order_message #view").click(function () {
+				var i=$(".order_message #view").index(this);
+              var index=$(".order_message #view").siblings()[i*7].innerHTML;
+              console.log(index)
+              $.ajax({
+                type: 'post',
+                url: "http://localhost:8000/b1/order_management/view",
+                data: {view_id: index},
+                success: function (data) {
+                  window.location = "http://localhost:8000/b1/order_management/order?id="+data.result[0].id
+                }
+              })
+            })
 					}
 				}
 			}
@@ -187,7 +284,8 @@
 	})
 
 	$(".order_message #view").click(function () {
-		var index=$(".order_message #view").index(this);
+		var i=$(".order_message #view").index(this);
+		var index=$(".order_message #view").siblings()[i*7].innerHTML;
 		$.ajax({
 			type: 'post',
 			url: "http://localhost:8000/b1/order_management/view",

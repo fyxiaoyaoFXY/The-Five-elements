@@ -65,7 +65,7 @@ export default class Details extends Component {
 
     render() {     
         return(
-            <div>
+            <div style={{width: '100%',height:'108%',backgroundColor: '#fff',zIndex:999,position:'absolute',overflow:'auto'}}>
             {
             this.state.dataItem.map((item,index)=>{
                 if(item.article_id==id){
@@ -79,7 +79,7 @@ export default class Details extends Component {
                                 <span>{item.author}</span>
                             </Link>
                             <div style={{display:'inline-block',float:'right',padding:'1px 7px'}}>
-                                <Link to='/apphome/hometab/chat'>
+                                <Link to={'/apphome/hometab/mychat/' + item.article_id}>
                                     <button>进入圈子</button>
                                 </Link>
                             </div>

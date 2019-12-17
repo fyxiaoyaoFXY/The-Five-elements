@@ -9,7 +9,7 @@ import { Accordion, List } from 'antd-mobile';
 // import Todoinput from './ToDolist/Todoinput';
 import { Grid } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
-import MyChat from '../Hometab/MyChat';
+import MyChat from './MyChat';
 
 const data = Array.from(new Array(17)).map((_val, i) => ({
   icon: './img/夜晚.png',

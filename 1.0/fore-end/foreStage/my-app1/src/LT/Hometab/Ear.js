@@ -88,7 +88,7 @@ export default class Eye extends Component {
   }
   render() {
     return (
-      <div>
+      <div  style={{width: '100%',height:'108%',backgroundColor: '#fff',zIndex:999,position:'absolute'}}>
         <NavBar mode="light" style={{ background: '#8794a8', color: 'black' }}
           leftContent={[
             <Link to='/apphome' style={{ color: 'black' }}><i style={{ fontSize: 22, lineHeight: '22px', marginLeft: '-10px' }} className='iconfont icon-fanhui'></i></Link>,
@@ -122,7 +122,7 @@ export default class Eye extends Component {
         {/* <Route path={`/apphome/hometab/eye/:id`}>
 
         </Route> */}
-        <ul style={{ listStyle: 'none', margin: '10px auto' }}>
+        <ul style={{ listStyle: 'none', margin: '10px auto',height:'100%',overflow:'auto'}}>
           {
             this.state.dataItem.map((item, index) => (
               <Link to={'/apphome/hometab/details1/' + item.article_id}>
