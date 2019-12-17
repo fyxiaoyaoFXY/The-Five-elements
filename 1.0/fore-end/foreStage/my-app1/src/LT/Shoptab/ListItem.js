@@ -38,13 +38,13 @@ class ListItem extends Component {
 					style={{backgroundColor: item.status === 0 ? '#fff' : 'gray',float:'left',marginTop:12}}
 				></span>
 				<span style={{display:'inline-block',float:'left',width:'90%',fontSize:15}}>
-					{item.title}
+					{item.gName}
 				</span>
 				<span style={{display:'inline-block',marginLeft:'50%',fontSize:15}}>
-					{item.price}
+					{item.gPrice2}
 				</span>
 				<span style={{display:'inline-block',marginLeft:'10%',fontSize:15}}>
-					{item.num}
+					{item.gNum}
 				</span>
 				
 				<p onClick={this.handleDelete} className="delete-btn">删除</p>

@@ -2,31 +2,33 @@ import React, { Component } from 'react'
 import './Cart.css'
 import { List, InputItem, TextareaItem,Grid} from 'antd-mobile';
 import ListItem from './ListItem';
+import {HashRouter  as Router,withRouter,Route,Link,Switch,Redirect} from 'react-router-dom';
 
 export default class cart extends Component {
     constructor () {
 		super();
 
 		this.state = {
-			list: [{
-				id: 0,
-                title: '儿童剧《西游记之三打白骨精》',
-                price:'¥66.6',
-                num:1,
-				status: 0
-			}, {
-				id: 1,
-                title: '儿童剧《西游记之三打白骨精》',
-                price:'¥66.6',
-                num:1,
-				status: 0
-			}, {
-				id: 2,
-                title: '儿童剧《西游记之三打白骨精》',
-                price:'¥66.6',
-                num:1,
-				status : 0
-			}],
+			// list: [{
+			// 	id: 0,
+            //     title: '儿童剧《西游记之三打白骨精》',
+            //     price:'¥66.6',
+            //     num:1,
+			// 	status: 0
+			// }, {
+			// 	id: 1,
+            //     title: '儿童剧《西游记之三打白骨精》',
+            //     price:'¥66.6',
+            //     num:1,
+			// 	status: 0
+			// }, {
+			// 	id: 2,
+            //     title: '儿童剧《西游记之三打白骨精》',
+            //     price:'¥66.6',
+            //     num:1,
+			// 	status : 0
+            // }],
+            list:[],
             finished: 0,
             data1:[
                 {icon:'./img/13.jpg',tit:'开心麻花《皇帝的新娘》'},
@@ -71,7 +73,18 @@ export default class cart extends Component {
 		});
 	}
     componentDidMount() {
-        // this.autoFocusInst.focus();
+        fetch('http://localhost:5000/cartlist',{
+            "method":"get", 
+           })
+          .then(res=>res.json())
+          .then(res=>{
+              console.log(res)
+              this.setState({
+               list:res
+              })   
+              
+            }
+          )
     }
     handleClick = () => {
         this.inputRef.focus();
@@ -81,7 +94,7 @@ export default class cart extends Component {
         return (
             <div>
                 <div className="Ctop">
-                    <i className="iconfont icon-ico_leftarrow" style={{fontSize:20,color:'black',paddingTop:10,height:30,float:'left'}}></i>
+                    <Link to='/apphome' style={{color:'black'}}><i style={{fontSize:22,lineHeight:'22px',marginTop:'35px',marginLeft:'10px'}} className='iconfont icon-fanhui'></i></Link>
                     <p style={{display:'block',fontSize:18,color:'black',paddingTop:10,margin:0,textAlign:'center'}}>购物车</p>
                 </div>
                 <div className="Cb1">

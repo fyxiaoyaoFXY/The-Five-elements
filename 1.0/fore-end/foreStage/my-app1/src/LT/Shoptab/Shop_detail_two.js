@@ -12,7 +12,9 @@ const tabs = [
   
 export default class Shop_detail_two extends Component {
     state = {
-        data: ['15','10'],
+        data:[],
+        data1:[],
+        data4:[],
         imgHeight: 200,
         open: true,
         dataImg:[
@@ -21,6 +23,47 @@ export default class Shop_detail_two extends Component {
             {img:'./images/12.png'},
             {img:'./images/12.png'}
           ]
+    }
+    componentDidMount() {
+        console.log(this.props.match.params.id)
+        fetch('http://localhost:5000/detail2?id='+this.props.match.params.id,{
+            "method":"get", 
+            // params:JSON.stringify({"id":1})
+            // headers: {'Content-Type': 'application/json; charset=utf-8'},
+           })
+          .then(res=>res.json())
+          .then(res=>{
+              console.log(res[0])
+              this.setState({
+                data:res[0]
+              })
+              this.setState({
+                data1:[this.state.data.img1,this.state.data.img2]
+              })
+              this.setState({
+                data4:this.state.data.aPrice2.split('、')
+              })
+             
+            }
+          )
+    }
+    click=()=>{
+        var aName=this.state.data.aName
+        var aPrice=this.state.data.aPrice2
+        fetch('http://localhost:5000/cart',{
+            method:'POST',
+            headers: {'Content-Type': 'application/json; charset=utf-8'},
+            body: JSON.stringify({
+              aName,
+              aPrice
+            })})
+          .then(res=>res.json())
+          .then(res=>{
+            // this.setState({
+            //     data1:res
+            // })
+          } 
+        )
     }
     render(){
         return(
@@ -31,7 +74,7 @@ export default class Shop_detail_two extends Component {
                 ]}
                 onLeftClick={this.onOpenChange}
                 rightContent={[
-                <i style={{fontSize:22,lineHeight:'22px',marginRight:'8px'}} className='iconfont icon-gouwuche'></i>
+                <Link to='/apphome/shoptab/cart' style={{color:'black'}}><i style={{fontSize:22,lineHeight:'22px',marginRight:'8px'}} className='iconfont icon-gouwuche'></i></Link>
                 
             ]}
             ></NavBar>
@@ -39,11 +82,11 @@ export default class Shop_detail_two extends Component {
                     <Carousel
                     autoplay={true}
                     infinite
-                    beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                    afterChange={index => console.log('slide to', index)}
+                    // beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+                    // afterChange={index => console.log('slide to', index)}
                     style={{width: '100%', height: this.state.imgHeight,margin:'0 auto'}}
                     >
-                    {this.state.data.map(val => (
+                    {this.state.data1.map(val => (
                         <a
                         key={val}
                         href="http://www.alipay.com"
@@ -52,7 +95,8 @@ export default class Shop_detail_two extends Component {
                             
                         <img
                             //src={require(`./images/${val}.png`)}
-                            src={`./images/${val}.png`}
+                                                        
+                            src={'http://localhost:5000/images?imgname='+val}
                             alt=""
                             style={{ width: '100%', verticalAlign: 'top' }}   //图片记得写上宽度百分之百
                             onLoad={() => {
@@ -64,29 +108,41 @@ export default class Shop_detail_two extends Component {
                         </a>
                     ))}
                 </Carousel>
-                <p style={{width:'90%',margin:'0 auto'}}>世界原版经典音乐剧《猫》CATS 【2020中国“猫”年震撼回归】</p>
+                <p style={{width:'90%',margin:'30px auto'}}>{this.state.data.aContent}</p>
+                <div style={{width:'90%',margin:'0 auto',border:'0px solid #8794a8'}}><h3 style={{margin:'0 auto',fontSize:'18px'}}>价格</h3> <SegmentedControl
+                    values={this.state.data4}
+                    tintColor={'#8794a8'}
+                    style={{ height: '40px', width: '100px'}}
+                    />
+                </div>
             </div>
             
             <Button style={{width:'90%',margin:'0 auto',backgroundColor:'#ccc0d4',marginTop:'20px',color:'white'}}>立即购买</Button>
-            <Link to='/apphome/shoptab/cart'><Button style={{width:'90%',margin:'0 auto',backgroundColor:'#ccc0d4',marginTop:'20px',color:'white'}}>加入购物车</Button></Link>
+            <Link to='/apphome/shoptab/cart'><Button style={{width:'90%',margin:'0 auto',backgroundColor:'#ccc0d4',marginTop:'20px',color:'white'}} onClick={this.click}>加入购物车</Button></Link>
             
 
             <div>
                 <WhiteSpace />
-                <Tabs tabs={tabs} initialPage={2} animated={false} useOnPan={false}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '350px', backgroundColor: '#fff' }}>
-                <ul style={{listStyle:'none',margin:'0 auto'}}>
-                        {
-                            this.state.dataImg.map((item,index)=>(
-                            <li style={{height:'180px',width:'90%',margin:'20px auto',border:'1px solid #8794a8'}} key={index}>
-                                <img style={{height:'180px',width:'100%',margin:'0px auto'}} src={item.img}/>   
-                            </li>
-                            ))
-                        }
-                </ul> 
+                <Tabs tabs={tabs} initialPage={2} animated={false} useOnPan={true} initialPage={0}>
+                <div style={{  alignItems: 'center', justifyContent: 'center', height: '350px', backgroundColor: '#fff' }}>
+                    <ul style={{listStyle:'none',margin:'10px auto'}}>
+                        <li style={{height:'auto',width:'100%',margin:'10px auto'}} >
+                            <div dangerouslySetInnerHTML={{__html: this.state.data.detail1}}></div>
+                            <img style={{height:'auto',width:'100%',margin:'0px auto'}} src={'http://localhost:5000/images?imgname='+this.state.data.img_1}/>   
+                            
+                        </li>
+                        <li style={{height:'auto',width:'100%',margin:'20px auto'}} >
+                            <img style={{height:'auto',width:'100%',margin:'0px auto'}} src={'http://localhost:5000/images?imgname='+this.state.data.img_2}/> 
+                            <div dangerouslySetInnerHTML={{__html: this.state.data.detail2}}></div>
+                        </li>
+                        <li style={{height:'auto',width:'100%',margin:'20px auto'}} >
+                            <img style={{height:'auto',width:'100%',margin:'0px auto'}} src={'http://localhost:5000/images?imgname='+this.state.data.img_3}/>   
+                            <div dangerouslySetInnerHTML={{__html: this.state.data.detail3}}></div>
+                        </li>
+                    </ul> 
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '350px', backgroundColor: '#fff' }}>
-                    Content of second tab
+                <div style={{padding:'20px', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '350px', backgroundColor: '#fff' }}>                    
+                    <div dangerouslySetInnerHTML={{__html: this.state.data.need}}></div>                    
                 </div>
                 </Tabs>
                 <WhiteSpace />

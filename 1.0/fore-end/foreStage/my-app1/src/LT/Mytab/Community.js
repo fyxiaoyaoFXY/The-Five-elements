@@ -11,14 +11,34 @@ const tabs = [
       {icon:'images/9.png'}
   ]
 export default class Community extends Component {
-    state = {
+    constructor() {
+    super();
+    this.state={
         dataItem:[
-          {img:'./images/5.png',title:'毕加索画展的群'},
-          {img:'./images/10.png',title:'皮影展的群'},
-          {img:'./images/8.png',title:'毕加索画展的群'},
-          {img:'./images/9.png',title:'毕加索画展的群'},
-        ]
-      };
+            {img:'./images/5.png',title:'毕加索画展的群'},
+            {img:'./images/10.png',title:'皮影展的群'},
+            {img:'./images/8.png',title:'毕加索画展的群'},
+            {img:'./images/9.png',title:'毕加索画展的群'},
+        ],
+        data:[],
+        
+    }
+    }
+    componentDidMount() {
+        fetch('http://localhost:5000/active',{
+            method:'GET' 
+            })
+          .then(res=>res.json())
+          .then(res=>{
+            this.setState({
+                data:res
+                
+            })
+        
+          } 
+         
+        )
+    }
     render() {
         return (
             <div style={{position: 'absolute',width:'100%',height:'100%'}}>
@@ -58,21 +78,38 @@ export default class Community extends Component {
                                 {
                                     tabs.map(item=>{
                                             if(item.title == '动态'){
-                                                return <div style={{ display: 'flex', height: '100%', backgroundColor: '#fff'}}>
-                                                            <div style={{width:'100%',height:'35%',borderBottom:'1px dotted #d4d4d4'}}>
-                                                                <Grid data={data}
-                                                                    columnNum={3}
-                                                                    hasLine={false}
-                                                                    renderItem={dataItem => (
-                                                                        <img src={dataItem.icon} style={{ width:'90%' }} alt="" />
-                                                                    )}
-                                                                    />
-                                                                <div style={{height:'30%',margin:'0 5px 0 5px'}}>
-                                                                    <p style={{fontSize:12,marginLeft:4,marginTop:6}}>你好</p>
-                                                                    <p style={{fontSize:10,color:'#d4d4d4'}}><span style={{marginRight:6}}>分类</span><span>444条评论</span></p>
-                                                                </div>
+                                                return(
+                                                    <ul style={{listStyle:'none',margin:'0px auto'}}>
+                                                    {
+                                                        this.state.data.map((item,index)=>(
+                                                       
+                                                        <li style={{height:'110px',width:'95%',margin:'0 auto',marginBottom:'10px',border:'1px solid #8794a8'}} key={index}>
+                                                            <img style={{width:'90px',height:'90px',float:'left'}} src={'http://localhost:5000/img?imgname='+item.img1}/>
+                                                            <div style={{display:'inline-block',marginLeft:'10px'}}>
+                                                            <p style={{overflow:'hidden',width:'200px',height:'40px'}}>{item.content}</p>
+                                                            <p>{item.time}</p>
                                                             </div>
-                                                        </div>
+                                                        </li>
+                                                       
+                                                        ))
+                                                    }
+                                                </ul> 
+                                                )
+                                                // return <div style={{ display: 'flex', height: '100%', backgroundColor: '#fff'}}>
+                                                //             <div style={{width:'100%',height:'35%',borderBottom:'1px dotted #d4d4d4'}}>
+                                                //                 <Grid data={data}
+                                                //                     columnNum={3}
+                                                //                     hasLine={false}
+                                                //                     renderItem={dataItem => (
+                                                //                         <img src={dataItem.icon} style={{ width:'90%' }} alt="" />
+                                                //                     )}
+                                                //                     />
+                                                //                 <div style={{height:'30%',margin:'0 5px 0 5px'}}>
+                                                //                     <p style={{fontSize:12,marginLeft:4,marginTop:6}}>你好</p>
+                                                //                     <p style={{fontSize:10,color:'#d4d4d4'}}><span style={{marginRight:6}}>分类</span><span>444条评论</span></p>
+                                                //                 </div>
+                                                //             </div>
+                                                //         </div>
                                             }else if(item.title == '聊天室'){
                                                 return (
                                                     
