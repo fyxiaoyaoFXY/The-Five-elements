@@ -15,7 +15,7 @@ EYE&EAR是一个为人们带来文体娱乐活动第一消息的APP，方便用�
     * GitHub：https://github.com/Qiaoxiaoyue-799/The-Five-elements
 * 侯德森 （前端工程师，测试员）
     * Email：1807436422@qq.com
-    * GitHub：https://github.com/Qiaoxiaoyue-799/The-Five-elements
+    * GitHub：https://github.com/houdesen
     
 ### 项目截图
 
